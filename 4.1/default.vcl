@@ -11,7 +11,7 @@ backend default {
 
 # Access control list for PURGE requests.
 acl purge {
-    "172.16.0.0/12";
+    "{{ VARNISH_SUBNET }}";
     "localhost";
     "127.0.0.1";
     "::1";
