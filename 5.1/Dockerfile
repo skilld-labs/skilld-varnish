@@ -1,5 +1,16 @@
 FROM alpine:edge
 
+ARG BUILD_DATE
+ARG VCS_REF
+
+LABEL org.label-schema.build-date=$BUILD_DATE \
+  org.label-schema.vcs-ref=$VCS_REF \
+  org.label-schema.schema-version="1.0" \
+  org.label-schema.name="skilld-varnish" \
+  org.label-schema.description="Skilld varnish" \
+  org.label-schema.vcs-url="https://github.com/skilld-labs/skilld-varnish" \
+  maintainer="Andy Postnikov <andypost@ya.ru>"
+
 ENV VARNISH_BACKEND_HOST nginx
 ENV VARNISH_BACKEND_PORT 80
 ENV VARNISH_MEMORY 100M
