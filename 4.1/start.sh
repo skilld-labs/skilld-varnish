@@ -11,4 +11,4 @@ sed -i "s/{{ VARNISH_ERRORS_TTL }}/${VARNISH_ERRORS_TTL}/g" /etc/varnish/default
 sed -i "s/{{ VARNISH_GRACE }}/${VARNISH_GRACE}/g" /etc/varnish/default.vcl
 sed -i "s#{{ VARNISH_SUBNET }}#${VARNISH_SUBNET}#g" /etc/varnish/default.vcl
 
-varnishd -F -s malloc,${VARNISH_MEMORY} -a :80 -T :81 -f /etc/varnish/default.vcl
+varnishd -F -s malloc,${VARNISH_MEMORY} -a :80 -T :81 -f /etc/varnish/default.vcl -S ${VARNISH_SECRET_FILE}
