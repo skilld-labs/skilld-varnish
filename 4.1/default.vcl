@@ -23,16 +23,6 @@ sub vcl_recv {
     # Protecting against the HTTPOXY CGI vulnerability.
     unset req.http.proxy;
 
-    # Add an X-Forwarded-For header with the client IP address.
-    if (req.restarts == 0) {
-        if (req.http.X-Forwarded-For) {
-            set req.http.X-Forwarded-For = req.http.X-Forwarded-For + ", " + client.ip;
-        }
-        else {
-            set req.http.X-Forwarded-For = client.ip;
-        }
-    }
-
     # Only allow PURGE requests from IP addresses in the 'purge' ACL.
     if (req.method == "PURGE") {
         if (!client.ip ~ purge) {
@@ -122,7 +112,7 @@ sub vcl_recv {
         #    cookie string.
         set req.http.Cookie = ";" + req.http.Cookie;
         set req.http.Cookie = regsuball(req.http.Cookie, "; +", ";");
-        set req.http.Cookie = regsuball(req.http.Cookie, ";(SESS[a-z0-9]+|SSESS[a-z0-9]+|NO_CACHE)=", "; \1=");
+        set req.http.Cookie = regsuball(req.http.Cookie, ";(SESS[a-z0-9]+|SSESS[a-z0-9]+|NO_CACHE|XDEBUG_SESSION)=", "; \1=");
         set req.http.Cookie = regsuball(req.http.Cookie, ";[^ ][^;]*", "");
         set req.http.Cookie = regsuball(req.http.Cookie, "^[; ]+|[; ]+$", "");
 
