@@ -6,7 +6,7 @@
 ## Supported tags and respective `Dockerfile` links
 
 - [`4.1` (*4.1/Dockerfile*)](https://github.com/skilld-labs/skilld-varnish/tree/master/4.1/Dockerfile)
-- [`5.1` (*5.1/Dockerfile*)](https://github.com/skilld-labs/skilld-varnish/tree/master/4.1/Dockerfile)
+- [`5.1` (*5.1/Dockerfile*)](https://github.com/skilld-labs/skilld-varnish/tree/master/5.1/Dockerfile)
 
 ## Environment variables available for customization
 
