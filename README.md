@@ -23,6 +23,7 @@
 | VARNISH_SUBNET                        | 172.16.0.0/12 | |
 | VARNISH_SECRET_FILE                   | none | |
 | VARNISH_COOKIE_REGEXP                 | SESS[a-z0-9]+&#124;SSESS[a-z0-9]+&#124;NO_CACHE | |
+| VARNISH_RESPONSE_HEADER_LENGHT        | 8192 | |
 
 ## Defaults
 
