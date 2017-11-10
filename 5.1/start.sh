@@ -12,4 +12,4 @@ sed -i "s/{{ VARNISH_GRACE }}/${VARNISH_GRACE}/g" /etc/varnish/default.vcl
 sed -i "s#{{ VARNISH_SUBNET }}#${VARNISH_SUBNET}#g" /etc/varnish/default.vcl
 sed -i "s#{{ VARNISH_COOKIE_REGEXP }}#${VARNISH_COOKIE_REGEXP}#g" /etc/varnish/default.vcl
 
-varnishd -F -s malloc,${VARNISH_MEMORY} -a :80 -T :81 -f /etc/varnish/default.vcl -S ${VARNISH_SECRET_FILE}
+varnishd -F -s malloc,${VARNISH_MEMORY} -a :80 -T :81 -p http_resp_hdr_len=${VARNISH_RESPONSE_HEADER_LENGHT} -f /etc/varnish/default.vcl -S ${VARNISH_SECRET_FILE}
