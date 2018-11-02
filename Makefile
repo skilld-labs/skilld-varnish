@@ -1,5 +1,5 @@
 NAME = skilldlabs/varnish
-TAGS = 4.1 5.1
+TAGS = 4.1 5.2 6.1
 
 .PHONY: all build push
 
