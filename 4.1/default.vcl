@@ -51,6 +51,17 @@ sub vcl_recv {
         return (synth(200, "Ban added."));
     }
 
+    if (req.method == "URIBAN") {
+        # Same ACL check as above:
+        if (!client.ip ~ purge) {
+            return (synth(403, "Not allowed."));
+        }
+
+        ban("req.http.host == " + req.http.host + " && req.url == " + req.url);
+        # Throw a synthetic page so the request won't go to the backend.
+        return (synth(200, "Ban added."));
+    }
+
     # Only cache GET and HEAD requests (pass through POST requests).
     if (req.method != "GET" && req.method != "HEAD") {
         return (pass);
