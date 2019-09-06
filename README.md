@@ -7,6 +7,7 @@
 
 - [`4.1` (*4.1/Dockerfile*)](https://github.com/skilld-labs/skilld-varnish/tree/master/4.1/Dockerfile)
 - [`5.2` (*5.2/Dockerfile*)](https://github.com/skilld-labs/skilld-varnish/tree/master/5.2/Dockerfile)
+- [`6` (*6/Dockerfile*)](https://github.com/skilld-labs/skilld-varnish/tree/master/6/Dockerfile)
 
 ## Environment variables available for customization
 
@@ -32,4 +33,4 @@
 
 ## Examples
 
-`docker run -v $(pwd)/varnish.secret:/secret -e VARNISH_SECRET_FILE=/secret skilldlabs/varnish:5.1`
+`docker run -v $(pwd)/varnish.secret:/secret -e VARNISH_SECRET_FILE=/secret skilldlabs/varnish:6`
